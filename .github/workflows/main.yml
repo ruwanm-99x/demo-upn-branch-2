@@ -22,8 +22,8 @@ jobs:
 
     - name: Create a PR to master
       run: |
-        TAG_NAME="${GITHUB_REF/refs/tags/}"
-        NEW_BRANCH_NAME="release/${TAG_NAME//\//-}"
+        TAG_NAME="${GITHUB_REF/refs\/tags\//}"
+        NEW_BRANCH_NAME="release/${TAG_NAME}"
         gh pr create --base master --head "${NEW_BRANCH_NAME}" --title "Release ${TAG_NAME}" --body "This PR is created automatically to release version ${TAG_NAME}" --label "automated-pr"
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
