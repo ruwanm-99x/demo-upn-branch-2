@@ -24,7 +24,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        branch: release/${{ steps.create_tag_release.outputs.TAG_NAME }}
+        branch: "${NEW_BRANCH_NAME}"
         title: "Release ${{ steps.create_tag_release.outputs.TAG_NAME }}"
         body: "This PR is created automatically to release version ${{ steps.create_tag_release.outputs.TAG_NAME }}"
         labels: "automated-pr"
