@@ -25,6 +25,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: "${NEW_BRANCH_NAME}"
+        base: master
         title: "Release ${{ steps.create_tag_release.outputs.TAG_NAME }}"
         body: "This PR is created automatically to release version ${{ steps.create_tag_release.outputs.TAG_NAME }}"
         labels: "automated-pr"
